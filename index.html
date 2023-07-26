@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube</title>
+    <link rel="stylesheet" href="youtube.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', arial Helvetica, sans-serif;
+    
+    }
+
+
+    @media screen  and (max-width: 500px){
+      
+        .sidenav{
+            width: 0px;
+        }
+       .search input{
+        width: 400px;
+       }
+
+
+
+
+    }
+        
+    
+
+    @media screen and (max-width: 1386px) {
+       .thumbnail{
+       width: 330px;
+        height: auto;
+       }
+
+       .search input{
+        width: 450px;
+       }
+
+
+       .flex-coontainer ,.page{
+        /* background-color: aqua; */
+       width: 300px;
+       height: auto;
+    }
+    .channel p{
+        font-size: 14px;
+    }
+    }
+      
+
+
+
+    
+    /* this is a grid for website template  */
+    .template {
+        display: grid;
+        grid-template-areas:
+            'nav nav nav nav'
+            'side nav2 nav2 nav2 '
+            'side cont cont cont '
+            'side cont cont cont';
+    }
+    
+    .navigation {
+        grid-area: nav;
+    }
+    
+    .sidebar {
+        grid-area: side;
+    }
+    
+    .content {
+        grid-area: cont;
+        margin-top: 110px;
+        width: 100%;
+    }
+    
+    .nav2 {
+        grid-area: nav2;
+    }
+    
+    
+    /* this is a header is which top navigation is built  */
+    
+    header {
+        position: fixed;
+        /* Fixed Sidebar (stay in place on scroll) */
+        /*z-index: 1;  Stay on top */
+        height: 109px;
+        background-color: white;
+    }
+    
+    
+    
+    /* logo design  */
+    .nav i {
+        font-size: 1.3rem;
+        padding: 1rem;
+        /* background-color: #ff9900; */
+    }
+    
+    .nav {
+        display: flex;
+        padding: 2px;
+        align-items: center;
+        background-color: white;
+    
+    
+    }
+    
+    .logo {
+        background-image: url("https://www.edigitalagency.com.au/wp-content/uploads/Youtube-logo-png.png");
+        width: 10rem;
+        height: 35px;
+        background-size: cover;
+    }
+    
+    /* search design  */
+    
+    .search {
+        display: flex;
+        /* background-color: aqua; */
+        padding: 0px 205px;
+    }
+    
+    input {
+        font-size: 1rem;
+        padding-left: 13px;
+        height: 40px;
+        width: 530px;
+        border: 1px solid grey;
+        /* margin-top:4px; */
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        background-color: #FFFFFF;
+    }
+    
+    .search-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: grey; */
+        height: 40px;
+        width: 70px;
+        border: 1px solid grey;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+    
+    .search-logo i {
+        font-size: 20px;
+        padding: 1px 6px;
+    }
+    
+    .search-logo:hover {
+        background-color: #EDEDEE;
+    }
+    
+    .search .span {
+        border: 1px solid transparent;
+        border-radius: 37px;
+        background-color: #eeeeee;
+    
+    }
+    
+    .search .span i {
+        font-size: 10px;
+    }
+    
+    .span:hover {
+        background-color: #bebec0;
+    }
+    
+    /* last menu */
+    .last {
+        display: flex;
+        justify-content: space-around;
+        margin-left: -27px;
+    
+    }
+    
+    .logo3 {
+        background-color: #80808024;
+        border: 1px solid transparent;
+        border-radius: 36px;
+    
+    }
+    
+    .logo3:hover {
+        background-color: #bebec0;
+    }
+    
+    .logo3 i {
+        font-size: 16px;
+    }
+    
+    .options-intrest {
+        margin: auto;
+        display: flex;
+        border: 2px solid transparent;
+        height: 37px;
+        width: 500px;
+        justify-content: space-around;
+    
+    }
+    
+    .opt {
+        width: auto;
+        height: 20px;
+        border-radius: 12px;
+        background-color: #EDEDEE;
+        padding: 9px;
+        margin: 4px;
+    
+    }
+    
+    .opt:hover {
+        background-color: #bebec0;
+        cursor: default;
+    }
+    
+    /* this is a side navigation for youtube options   */
+    
+    .sidenav {
+        height: 100%;
+        /* Full-height: remove this if you want "auto" height */
+        width: 230px;
+        /* Set the width of the sidebar */
+        position: fixed;
+        /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1;
+        /*Stay on top */
+        top: 49px;
+        /* Stay at the top */
+        left: 0;
+        /*background-color: ;  Black */
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 20px;
+    }
+    
+    
+    .item {
+        width: 170px;
+        margin-left: 8px;
+        margin-right: 8px;
+        display: flex;
+        font-size: 14px;
+        padding: 12px;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        font-weight: 400;
+    
+    }
+    
+    .select {
+        background-color: #EDEDEE;
+    }
+    
+    .item i {
+        padding: 0px 12px;
+        font-size: 18px;
+    }
+    
+    .item:hover {
+        background-color: #EDEDEE;
+        cursor: default;
+    }
+    
+              /*This is a options1 which contain Home shorts and subscriptions  */
+    .options1 {
+        height: 140px;
+    
+    }
+               /*This is a options2 which contains library history and etc.*/
+    .options2 {
+        margin-top: 8px;
+        height: 270px;
+    }
+               /*This is a options3 which contains Explore like trending music news */
+    .options3 {
+        font-size: 16px;
+        padding: 6px 0px 19px;
+        height: 457px;
+    }
+    
+    .options3 span {
+        padding: 0px 14px 0px;
+    }
+            /*options4 which contains more options of youtube */
+    .option4 {
+        padding: 8px;
+    
+    }
+    
+    .head {
+        padding: 12px 7px 4px;
+    }
+    
+    .More {
+        display: flex;
+        padding: 2px;
+    }
+    
+    /* .More img {
+        height: 40px;
+        width: 42px;
+    } */
+    
+    .More span {
+        margin-top: 12px;
+    }
+    
+    .item1 {
+    
+        padding: 1px;
+        border-radius: 20px;
+    }
+    
+    .item1:hover {
+        background-color: #EDEDEE;
+        cursor: default;
+    }
+    
+    .width img {
+        width: 50px;
+    }
+    
+    .option5 {
+        height: 200px;
+        padding-top: 8px;
+    }
+    
+    .fot {
+        height: 300px;
+    }
+    
+    .copyright {
+    
+        font-size: 12px;
+        padding-top: 23px;
+    }
+    
+    .copyright p {
+        padding-left: 19px;
+        font-weight: 300;
+    
+    }
+    
+    .copy2 {
+        font-size: 12px;
+        padding-top: 23px;
+    }
+    
+    .copy2 p {
+        padding-left: 19px;
+        font-weight: 300;
+    }
+    
+    .c {
+        padding: 28px;
+        font-size: 12px;
+    }
+    
+    /* options intrested  */
+    
+    .padding {
+        padding-left: 120px;
+    }
+    
+    
+    
+    .nav2 {
+        /* margin-top: 58px; */
+        position: fixed;
+        /* Fixed Sidebar (stay in place on scroll) */
+    
+        margin-left: 571px;
+        /* background-color: #eeeeee; */
+    }
+    
+    .sel {
+        background-color: #0F0f0f;
+        color: white;
+    }
+    
+    
+    /* it is a main content  */
+    
+    .main-content {
+        display: flex;
+        margin-right: 68px;
+        margin-top: 2px;
+        /* margin-left: 12px; */
+    
+    
+    
+    }
+    
+    .box {
+        display: grid;
+        border: 2px solid black;
+        width: 40%;
+        height: 407px;
+        background-color: #eeeeee;
+        grid-template-columns: auto;
+        grid-template-areas:
+            'image image image  '
+            'image image image  '
+    
+        ;
+    }
+    
+    .flex-container{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 250px;
+        margin-top: 116px;
+    }
+    
+    .page{
+        width: 364px;
+        height: 340px;
+        /* background-color: #EDEDEE; */
+        margin: 2px;
+    }
+    /* .page:hover{
+        background-color: #eeeeee;
+        border-radius: 12px;
+    } */
+    
+    .page img:hover{
+        border-radius: 0px;
+    
+    }
+    .thumbnail  {
+        /* width: 356px;
+        height: 206px; */
+        padding: 12px;
+        border-radius: 25px;
+    }
+     
+    .channellogo{
+        padding: 4px;
+       margin-left:12px ;
+    }
+    
+    
+    .channel{
+        display: flex;
+    }
+    
+    .channel i{
+        font-size: 32px;
+        padding: 4px;
+        padding-left: 12px;
+    }
+    
+    .channel p{
+        padding-left: 6px;
+        font-weight: 600;
+    }
+    
+    H5{
+        color: #606060;
+        padding: 0px;
+        padding-left: 56px;
+        padding-top: 6px;
+       font: 14px;
+        
+    }
+    
+    .shorts{
+        display: flex;
+     
+    }
+    
+    .boxes{
+        /* border: 2px solid black; */
+        width: 224px;
+        height: 480px;
+    }
+    
+    .navshorts{
+        padding: 12px;
+        
+    }
+    
+    .navshorts i{
+        font-size: 43px;
+    }
+    .navshorts img{
+        margin-right: 906px;
+    
+    }
+    
+    .boxes img{
+        width: 214px;
+        height: 380px;
+        padding: 5px;
+        border-radius: 26px;
+    }
+    
+    .boxes p{
+        padding-left: 7px;
+        font-weight: 600;
+        padding-bottom: 4px;
+    }
+    
+    .boxes span {
+        color: #606060;
+        font-size: 14px;
+        padding: 9px;
+        
+    }
+    
+    .horizantal line{
+        width: 70%;
+        height: 2px;
+        background-color: #606060;
+    }
+</style>
+    
+</head>
+
+<body>
+    <div class="template">
+
+
+        <div class="navigation">
+            <header>
+                <div class="nav">
+                    <i class="fa-solid fa-bars"></i>
+                    <div class="logo">
+
+                    </div>
+
+
+                    <div class="search">
+
+                        <div class="input">
+                            <input type="text" placeholder="Search">
+                        </div>
+                        <div class="search-logo">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div class="span"><i class="fa-solid fa-microphone"></i> </div class="span">
+                        <!-- <div class="speker">
+                    <i class="fa-solid fa-microphone"></i>              " this is microphone logo "
+                </div> -->
+                    </div>
+
+
+
+                    <div class="last">
+                        <div class="logo1">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="logo2">
+                            <i class="fa-regular fa-bell"></i>
+                        </div>
+                        <div class="logo3">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav2">
+                    <div class="options-intrest">
+
+                        <div class="opt sel">All</div>
+                        <div class="opt ">News</div>
+                        <div class="opt ">Jee</div>
+                        <div class="opt ">Music</div>
+                        <div class="opt ">Sports</div>
+                        <div class="opt ">HTML</div>
+                        <div class="opt ">Mobile </div>
+                        <div class="opt ">Laptops</div>
+                        <div class="opt ">C++</div>
+                        <div class="opt ">CSS</div>
+                        <div class="opt ">Cricket</div>
+                        <div class="opt ">Live</div>
+                        <div class="opt ">Laptop</div>
+                        <div class="opt ">Games</div>
+                        <div class="opt ">AI</div>
+                        <div class="opt ">Node</div>
+                        <div class="opt ">Mixes</div>
+                        <div class="opt ">NEET</div>
+                    </div>
+
+                </div>
+
+            </header>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidenav">
+                <div class="options1">
+                    <div class="item select">
+                        <i class="fa-solid fa-house"></i> Home
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-clapperboard"></i> Shorts
+                    </div>
+                    <div class="item">
+                        <i class="fa-brands fa-youtube"></i> Subscription
+                    </div>
+                </div>
+                <hr>
+                <div class="options2">
+
+                    <div class="item ">
+                        <i class="fa-solid fa-clipboard"></i>Library
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-clock-rotate-left"></i> History
+                    </div>
+                    <div class="item">
+                        <i class="fa-brands fa-youtube"></i> Your videos
+                    </div>
+                    <div class="item">
+                        <i class="fa-regular fa-clock"></i> Watch later
+                    </div>
+                    <div class="item">
+                        <i class="fa-regular fa-thumbs-up"></i> Liked videos
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-list-check"></i>Booster cheklist
+                    </div>
+
+                </div>
+                <hr>
+                <div class="options3">
+                    <span> Explore </span>
+                    <div class="item ">
+                        <i class="fa-solid fa-fire"></i>Trending
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-bag-shopping"></i>Shopping
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-music"></i> Music
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-radio"></i> Movies
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-podcast"></i> Live
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-gamepad"></i>Gaming
+                    </div>
+                    <div class="item ">
+                        <i class="fa-solid fa-file-lines"></i>News
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-trophy"></i> Sports
+                    </div>
+                    <div class="item">
+                        <i class="fa-regular fa-lightbulb"></i>Learning
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-shirt"></i> Fashion & Beauty
+                    </div>
+                </div>
+                <hr>
+                <div class="option4">
+                    <div class="head"> More from YouTube</div>
+
+                    <div class="item1 ">
+                        <div class="More">
+                            <img src="https://static.vecteezy.com/system/resources/previews/018/930/572/original/youtube-logo-youtube-icon-transparent-free-png.png "
+                                height="40px" width="42px" alt="this is a image "> &nbsp;&nbsp;&nbsp;
+                            <span>YouTube Primium </span>
+                        </div>
+
+                    </div>
+                    <div class="item1">
+                        <div class="More width">
+                            <img src="https://i.pinimg.com/1200x/81/9b/49/819b497af7e3332f77474f9ae094de0d.jpg"
+                                height="40px" width="42px" alt="">&nbsp;&nbsp;
+                            <span> YouTube studio</span>
+                        </div>
+                    </div>
+                    <div class="item1">
+                        <div class="More">
+                            <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3bGDKsJ1uem8wUSsh1nxX5MG-qrqWAmU9qULlyLM&s"
+                                height="40px" width="37px" alt="">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span> YouTube Music</span>
+                        </div>
+
+                    </div>
+                    <div class="item1">
+                        <div class="More">
+                            <img src=" https://e7.pngegg.com/pngimages/834/95/png-clipart-youtube-kids-child-mobile-app-youtube-emblem-child-thumbnail.png"
+                                height="40px" width="42px" alt="">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span> YouTube Kids</span>
+                        </div>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="option5">
+                    <div class="item ">
+                        <i class="fa-solid fa-gear"></i></i>Setting
+                    </div>
+                    <div class="item">
+                        <i class="fa-regular fa-flag"></i> Report History
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-circle-question"></i>Help
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-comment-dots"></i> Send feedback
+                    </div>
+
+                </div>
+                <hr>
+                <div class="fot">
+                    <div class="copyright">
+                        <p>
+                            About Press Copyright
+                        </p>
+                        <p>
+                            Contact usCreators
+                        </p>
+                        <p>
+                            AdvertiseDevelopers
+                        </p>
+                    </div>
+                    <div class="copy2">
+                        <p>
+                            Terms Privacy Policy & Safety
+                        </p>
+                        <p>
+                            How YouTube works
+                        </p>
+                        <p>
+                            Test new features
+                        </p>
+                    </div>
+                    <div class="c">
+                        © 2023 Google LLC
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-container">
+
+            <div class="page">
+                <!-- <img src="https://i.ytimg.com/vi/izqV9kZPOMY/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLAcBYkB-SRDd5vwIXnAJ_KbE0gArQ" alt=""> -->
+
+                <div class="channel">
+                    <!-- <i class="fa-regular fa-circle-user"></i>
+                    <p> Build This Complete Modern Website Using Only HTML And CSS in One Video 🔥</p> -->
+                </div>
+                <!-- <h5>APNA COLLEGE</h5>
+                <h5>1.6M views: 3 years ago</h5> -->
+            </div>
+            <div class="page">
+                <img class="thumbnail"
+                    src="https://i.ytimg.com/vi/OKJ0vw0CroE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLBXzuSxanKvzvkAGKu8v7mT4sx5yg"
+                    width="356px" height="206px" alt="">
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.ggpht.com/a4AOsw2qHfuXAooYs7EMkwqJMmW_Wbqebpzm8Xmf2Rj_95QMLnAAFDNRNOJG-sSoairOXvQKrS8=s68-c-k-c0x00ffffff-no-rj"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p> 2nd Test - Day 2 | Highlights | Pakistan Tour Of Sri Lanka | 25th July 2023</p>
+                </div>
+                <h5>Sony LIV</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/VDUlY8GfWm4/hq720.jpg?sqp=-oaymwEnCOgCEMoBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLCiNSh6QFJs5yIwujdB8JrB-wvdhw"
+                    alt="">
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.ggpht.com/vTgcincLJUECplD8LtTLuHLuuyZJZEEPNbxSjfWwMcVXRFeYvkulSu13E_5dTeYUpnB71ocWnw=s176-c-k-c0x00ffffff-no-rj-mo"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p> Threads Vs Twitter || Elon Musk Vs Mark Zukerberg || Instagram Threads Vs Twitter "</p>
+                </div>
+                <h5>Alakh GK</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/GeykycZ4Ixs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLBBLq59d13C3jkcK9JGzwn6FPUnMg"
+                    alt="">
+
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.googleusercontent.com/ytc/AOPolaQMtqt8g-xxJ3BkIF06RPiJcIsPzbSOLOwDVAA5pw=s176-c-k-c0x00ffffff-no-rj-mo"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p> Responsive website with hamberger menu & sticky navbar 🔥</p>
+                </div>
+                <h5>CodeWithHarry</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/nGhKIC_7Mkk/hq720.jpg?sqp=-oaymwEnCOgCEMoBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLDuAWNQrVGVmvbHQAOruc3P6707_g"
+                    alt="">
+
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.ggpht.com/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDe=s68-c-k-c0x00ffffff-no-rj"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p>Building AMAZON Clone for Beginners | Project using HTML & CSS</p>
+                </div>
+                <h5>Apna College</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/b8n-wpvBjrw/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLB5xGGJow75wJhNNzGUD526JWk2yA"
+                    alt="">
+
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.ggpht.com/oQ2NQMuq-9IS6_MZdsGXa0RWecaACremA01Z7jo-YpoEF1H6PyUF8PZzXkV10OYwSP3UMJDeTg=s176-c-k-c0x00ffffff-no-rj-mo"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p> Stop Wasting your Time! | The Scientific Way | Dhruv Rathee</p>
+                </div>
+                <h5>Dhruv Rathee</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+
+            <p class="horizantal line">
+
+            </p>
+            <div class="navshorts">
+
+                <nav>
+                    <img src="https://seeklogo.com/images/Y/youtube-shorts-logo-16273D1063-seeklogo.com.png" alt=""
+                        height="40px" width="120px">
+                    <i class="fa-solid fa-xmark"></i>
+                </nav>
+
+            </div>
+            <div class="shorts">
+                <div class="boxes" id="box1">
+                    <img src="https://i.ytimg.com/vi/bmKI7hBhny8/hq720_2.jpg?sqp=-oaymwEoCJUDENAFSFryq4qpAxoIARUAAIhC0AEB2AEB4gEKCBwQAhgGIAE4AQ==&rs=AOn4CLBvm1ncMVt1Eyv3wkXCC1hMTibiEw"
+                        alt="">
+                    <p>How many hours do you practice daily?🏏 #cricke</p>
+                    <span>2.3M views</span>
+                </div>
+                <div class="boxes" id="box2">
+                    <img src="https://i.ytimg.com/vi/it3Hvg0mSH0/oar2.jpg?sqp=-oaymwElCJUDENAFSFryq4qpAxcIARUAAIhC2AEB4gEKCBwQAhgGIAE4AQ==&rs=AOn4CLCJbWPp7YuMvgiG9hWjzgJSbPi4SQ"
+                        alt="">
+                    <p>How many hours do you practice daily?🏏 #cricke </p>
+                    <span>2.3M views</span>
+                </div>
+                <div class="boxes" id="box3">
+                    <img src="https://i.ytimg.com/vi/KXADginXGGE/oar2.jpg?sqp=-oaymwElCJUDENAFSFryq4qpAxcIARUAAIhC2AEB4gEKCBwQAhgGIAE4AQ==&rs=AOn4CLD0DNznPcUDzGoU9g2Lg30gr7qBOg"
+                        alt="">
+                    <p>How many hours do you practice daily?🏏 #cricke</p>
+                    <span>2.3M views</span>
+                </div>
+                <div class="boxes" id="box4">
+                    <img src="https://i.ytimg.com/vi/jitNI_67bLc/oar2.jpg?sqp=-oaymwElCJUDENAFSFryq4qpAxcIARUAAIhC2AEB4gEKCBwQAhgGIAE4AQ==&rs=AOn4CLBpzdr3MkQO5g3V912Uj11mRA_bmw"
+                        alt="">
+                    <p>How many hours do you practice daily?🏏 #cricke</p>
+                    <span>2.3M views</span>
+                </div>
+                <div class="boxes" id="box5">
+                    <img src="https://i.ytimg.com/vi/uRUM2UaSNnU/hq720.jpg?sqp=-oaymwEoCJUDENAFSFryq4qpAxoIARUAAIhC0AEB2AEB4gEKCBwQAhgGIAE4AQ==&rs=AOn4CLAqCbtUCyvIDt1Pfh0yBOf1nAM-uQ"
+                        alt="">
+                    <p>How many hours do you practice daily?🏏 #cricke</p>
+                    <span>2.3M views</span>
+                </div>
+
+               
+
+            </div>
+           
+
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/OZPQuwVC8i0/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLD5DyCLgKV0r7sxERMd63fvxx9VEw"
+                    alt="">
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.ggpht.com/-lFpmGDSJV_0uLAMCUsTamp-w_5Sgo0hF3TiHL5oQXRWp6oupI2qWcEnpnjv5fsq8HdBY5srjA=s176-c-k-c0x00ffffff-no-rj-mo"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p> Who will be India’s 4-5-6? | Cricket Chaupaal by Aakash Chopra </p>
+                </div>
+                <h5>APNA COLLEGE</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/v-yeai266MM/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLAqKKXYuNpZJQhBphaLqovR7rEcnw"
+                    alt="">
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.ggpht.com/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDe=s68-c-k-c0x00ffffff-no-rj"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p>स्मार्ट कैसे बने | Bholapan Kaise Dur Kare| भोलापन कैसे दूर करें?</p>
+                </div>
+                <h5>APNA COLLEGE</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/40XdJ9orIRY/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLAioxuFo5E1bY1T3NctPQtd1YPbZA"
+                    alt="">
+
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.googleusercontent.com/ytc/AOPolaQMtqt8g-xxJ3BkIF06RPiJcIsPzbSOLOwDVAA5pw=s176-c-k-c0x00ffffff-no-rj-mo"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p> How to Actually Get a Job in Web Development (Get Hired) 👨‍💻</p>
+                </div>
+                <h5>APNA COLLEGE</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/clf6bxvqX2o/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLCbPf5nPVZjs8g7JELLPgMXKBcuJA"
+                    alt="">
+
+
+                <div class="channel">
+                    <i class="fa-regular fa-circle-user"></i>
+                    <p> 3D Curved Display Phone - More Value For Money?</p>
+                </div>
+                <h5>APNA COLLEGE</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/ih1a5MUoShc/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLD1VOwm1CG09_sXAGPMOeWw41iZdQ"
+                    alt="">
+
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.ggpht.com/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDe=s68-c-k-c0x00ffffff-no-rj"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p> 10 AI Tools THAT CHANGE EVERYTHING!
+                        CHANGE EVERYTHING
+                    </p>
+                </div>
+                <h5>APNA COLLEGE</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+
+            <div class="page">
+                <img class="thumbnail" width="360px" height="206px"
+                    src="https://i.ytimg.com/vi/t_cSk9tQQkk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLCgZ5oNE_1iAk69QsiuxdEBxPu_4Q"
+                    alt="">
+
+
+                <div class="channel">
+                    <img class="channellogo"
+                        src="https://yt3.ggpht.com/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDe=s68-c-k-c0x00ffffff-no-rj"
+                        width="36px" height="36px " style="border-radius: 50%; " alt="">
+                    <p> Build This Complete Modern Website Using Only HTML And CSS in One Video 🔥</p>
+                </div>
+                <h5>APNA COLLEGE</h5>
+                <h5>1.6M views: 3 years ago</h5>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
